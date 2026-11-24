@@ -343,6 +343,64 @@
     .sheet{box-shadow:none;width:210mm;height:297mm;}
     .content{inset:14mm 14mm 13mm 14mm;}
   }
+
+	/* ---------- MOBILE RESPONSIVE (Screen Only) ---------- */
+  @media screen and (max-width: 768px) {
+    body {
+      padding: 8px;
+      display: block;
+    }
+    .sheet {
+      width: 100%;
+      height: auto;
+      min-height: auto;
+      overflow: visible;
+      padding: 16px 12px;
+    }
+    .frame-outer { inset: 4px; }
+    .frame-inner { inset: 7px; }
+    .corner, .vine { display: none; }
+    .content {
+      position: static;
+      inset: auto;
+      padding: 6px;
+    }
+    .title {
+      font-size: 22px;
+      letter-spacing: 4px;
+    }
+    .subtitle {
+      font-size: 8px;
+      letter-spacing: 1.5px;
+    }
+    .grid, .addr-grid, .sib-grid {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .field .lbl {
+      min-width: 115px;
+    }
+    .uncles-row {
+      grid-template-columns: 1fr;
+    }
+    .uncles-cells.cols-5,
+    .uncles-cells.cols-3 {
+      grid-template-columns: 1fr;
+    }
+    .cell {
+      text-align: left;
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+      padding: 6px 8px;
+    }
+    .cell:last-child { border-bottom: none; }
+    .ct {
+      min-width: 100%;
+    }
+    .footer {
+      margin-top: 14px;
+    }
+  }
 </style>
 </head>
 <body>
