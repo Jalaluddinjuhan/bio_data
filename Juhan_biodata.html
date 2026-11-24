@@ -344,7 +344,7 @@
     .content{inset:14mm 14mm 13mm 14mm;}
   }
 
-	/* ---------- MOBILE RESPONSIVE (Screen Only) ---------- */
+  /* ---------- MOBILE RESPONSIVE (Screen Only) ---------- */
   @media screen and (max-width: 768px) {
     body {
       padding: 8px 0;
@@ -353,29 +353,12 @@
       overflow-x: hidden;
     }
     .sheet {
+      flex-shrink: 0;
       transform-origin: top center;
     }
   }
 </style>
-</head>
-	<script>
-  function fitBiodataToMobile() {
-    const sheet = document.querySelector('.sheet');
-    if (!sheet) return;
-    if (window.innerWidth <= 768) {
-      const availableWidth = window.innerWidth - 16;
-      const sheetWidth = sheet.offsetWidth;
-      const scale = Math.min(1, availableWidth / sheetWidth);
-      sheet.style.transform = `scale(${scale})`;
-      sheet.style.marginBottom = `-${sheet.offsetHeight * (1 - scale)}px`;
-    } else {
-      sheet.style.transform = '';
-      sheet.style.marginBottom = '';
-    }
-  }
-  window.addEventListener('load', fitBiodataToMobile);
-  window.addEventListener('resize', fitBiodataToMobile);
-</script>
+</head>	
 <body>
 
 <div class="sheet">
@@ -598,5 +581,24 @@
   </div>
 </div>
 
+<script>
+  function fitBiodataToMobile() {
+    const sheet = document.querySelector('.sheet');
+    if (!sheet) return;
+    if (window.innerWidth <= 768) {
+      const availableWidth = window.innerWidth - 16;
+      const sheetWidth = sheet.offsetWidth;
+      const scale = Math.min(1, availableWidth / sheetWidth);
+      sheet.style.transform = `scale(${scale})`;
+      sheet.style.marginBottom = `-${sheet.offsetHeight * (1 - scale)}px`;
+    } else {
+      sheet.style.transform = '';
+      sheet.style.marginBottom = '';
+    }
+  }
+  window.addEventListener('load', fitBiodataToMobile);
+  window.addEventListener('resize', fitBiodataToMobile);
+</script>
+	
 </body>
 </html>
