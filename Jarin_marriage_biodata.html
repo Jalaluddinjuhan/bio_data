@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marriage Biodata — Umme Sadia Jarin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Base ---------- */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background: #e9e4d8;
+    font-family: 'Inter', 'Lato', sans-serif;
+    color: #2b2b2b;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- A4 Page ---------- */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 12mm auto;
+    background: #fffdf8;
+    position: relative;
+    padding: 10mm 13mm 8mm 13mm;
+    box-shadow: 0 8px 40px rgba(60, 30, 10, 0.18);
+    overflow: hidden;
+  }
+
+  /* ---------- Decorative border (frame) ---------- */
+  .frame-outer {
+    position: absolute;
+    inset: 6mm;
+    border: 1.2px solid #b48a3f;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .frame-inner {
+    position: absolute;
+    inset: 8mm;
+    border: 0.5px solid #d8b86a;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Corner ornaments */
+  .corner {
+    position: absolute;
+    width: 20mm;
+    height: 20mm;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .corner svg { width: 100%; height: 100%; display: block; }
+  .corner.tl { top: 4mm; left: 4mm; }
+  .corner.tr { top: 4mm; right: 4mm; transform: scaleX(-1); }
+  .corner.bl { bottom: 4mm; left: 4mm; transform: scaleY(-1); }
+  .corner.br { bottom: 4mm; right: 4mm; transform: scale(-1, -1); }
+
+  /* Subtle floral background watermark */
+  .watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130mm;
+    height: 130mm;
+    opacity: 0.04;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .watermark svg { width: 100%; height: 100%; }
+
+  /* ---------- Header ---------- */
+  .header {
+    text-align: center;
+    padding: 1mm 0 0.5mm;
+    position: relative;
+    z-index: 4;
+  }
+  .ornament-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 1mm;
+  }
+  .ornament-line .line {
+    height: 1px;
+    width: 26mm;
+    background: linear-gradient(to right, transparent, #b48a3f, transparent);
+  }
+  .ornament-line .diamond {
+    color: #b48a3f;
+    font-size: 9pt;
+    letter-spacing: 2px;
+  }
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24pt;
+    font-weight: 700;
+    color: #5a1a2e;
+    letter-spacing: 6px;
+    line-height: 1;
+    margin-bottom: 1mm;
+  }
+  .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 9pt;
+    color: #8a6a2a;
+    letter-spacing: 1px;
+  }
+  .name-banner {
+    margin: 1.5mm auto 1.2mm;
+    text-align: center;
+    position: relative;
+    z-index: 4;
+  }
+  .name-banner .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: #1f2d4a;
+    letter-spacing: 1px;
+  }
+  .name-banner .arabic {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8pt;
+    color: #b48a3f;
+    margin-top: 0.5mm;
+    letter-spacing: 2px;
+  }
+
+  /* ---------- Sections ---------- */
+  .content {
+    position: relative;
+    z-index: 4;
+    padding: 0 2mm;
+  }
+
+  .section {
+    margin-bottom: 1.5mm;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 11pt;
+    font-weight: 600;
+    color: #5a1a2e;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding-bottom: 0.5mm;
+    margin-bottom: 1mm;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 0.6px solid #e2c98a;
+  }
+  .section-title .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #b48a3f;
+    background: #faf3e3;
+    border: 0.8px solid #d8b86a;
+    width: 5mm;
+    height: 5mm;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .section-title .label {
+    flex-shrink: 0;
+  }
+  .section-title .rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, #d8b86a, transparent);
+  }
+
+  /* ---------- Cards ---------- */
+  .card {
+    background: #fbf6ea;
+    border: 0.5px solid #ead9b0;
+    border-left: 2.5px solid #b48a3f;
+    padding: 1.5mm 2.5mm;
+    border-radius: 1px;
+  }
+
+  /* Two column grid for personal info */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1mm 6mm;
+  }
+  .row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    font-size: 8.8pt;
+    line-height: 1.45;
+  }
+  .row .k {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #5a1a2e;
+    min-width: 24mm;
+    flex-shrink: 0;
+    font-size: 8.4pt;
+  }
+  .row .sep {
+    color: #b48a3f;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .row .v {
+    color: #2b2b2b;
+    font-weight: 400;
+  }
+
+  /* Education list */
+  .edu-item {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 8.5pt;
+    line-height: 1.35;
+    margin-bottom: 0.7mm;
+  }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-item .bullet {
+    color: #b48a3f;
+    font-size: 7.5pt;
+    flex-shrink: 0;
+    transform: translateY(-1px);
+  }
+  .edu-item .deg {
+    font-weight: 600;
+    color: #1f2d4a;
+  }
+  .edu-item .inst {
+    color: #555;
+    font-weight: 400;
+  }
+  .edu-item .yr {
+    color: #8a6a2a;
+    font-style: italic;
+    font-size: 8.2pt;
+  }
+
+  /* Family sibling list */
+  .sibling {
+    display: flex;
+    gap: 6px;
+    font-size: 8.3pt;
+    line-height: 1.35;
+    margin-bottom: 0.7mm;
+  }
+  .sibling:last-child { margin-bottom: 0; }
+  .sibling .marker {
+    color: #b48a3f;
+    flex-shrink: 0;
+    font-size: 7.5pt;
+    transform: translateY(-1px);
+  }
+  .sibling .relation {
+    font-weight: 600;
+    color: #5a1a2e;
+  }
+  .sibling .detail {
+    color: #333;
+  }
+
+  /* ---------- Uncles 2-row structured table ---------- */
+  .uncles-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  .uncles-table th {
+    font-family: 'Playfair Display', serif;
+    font-size: 8.8pt;
+    font-weight: 600;
+    color: #fffdf8;
+    background: #5a1a2e;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 1.1mm 2.5mm;
+    text-align: left;
+    border: 0.5px solid #b48a3f;
+  }
+  .uncles-table th .sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 7.5pt;
+    color: #d8b86a;
+    margin-left: 4px;
+    letter-spacing: 0.5px;
+    text-transform: none;
+  }
+  .uncles-table td {
+    vertical-align: top;
+    background: #fbf6ea;
+    border: 0.5px solid #ead9b0;
+    padding: 1.4mm 2.5mm;
+    width: 50%;
+  }
+  .uncles-table td.left {
+    border-left: 2.5px solid #b48a3f;
+  }
+  .uncle-item {
+    display: flex;
+    gap: 5px;
+    font-size: 8.1pt;
+    line-height: 1.3;
+    margin-bottom: 0.6mm;
+  }
+  .uncle-item:last-child { margin-bottom: 0; }
+  .uncle-item .marker {
+    color: #b48a3f;
+    flex-shrink: 0;
+    font-size: 7pt;
+    transform: translateY(-1px);
+  }
+  .uncle-item .nm {
+    font-weight: 600;
+    color: #1f2d4a;
+  }
+  .uncle-item .det {
+    color: #333;
+  }
+  .uncle-item .ph {
+    color: #8a6a2a;
+    font-style: italic;
+    font-size: 7.8pt;
+  }
+  .uncle-item .st {
+    color: #5a1a2e;
+    font-style: italic;
+    font-size: 7.8pt;
+  }
+
+  /* Address rows */
+  .addr-row {
+    display: flex;
+    gap: 6px;
+    font-size: 8.8pt;
+    line-height: 1.45;
+    margin-bottom: 0.8mm;
+  }
+  .addr-row:last-child { margin-bottom: 0; }
+  .addr-row .k {
+    font-weight: 600;
+    color: #5a1a2e;
+    min-width: 30mm;
+    flex-shrink: 0;
+    font-size: 8.4pt;
+  }
+  .addr-row .v { color: #2b2b2b; }
+
+  /* Contact */
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 8.6pt;
+    line-height: 1.4;
+    margin-bottom: 0.7mm;
+  }
+  .contact-row:last-child { margin-bottom: 0; }
+  .contact-row .icon {
+    width: 5mm;
+    height: 5mm;
+    background: #faf3e3;
+    border: 0.6px solid #d8b86a;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #b48a3f;
+    flex-shrink: 0;
+    font-size: 7.5pt;
+  }
+  .contact-row .k {
+    font-weight: 600;
+    color: #5a1a2e;
+    min-width: 28mm;
+    font-size: 8.4pt;
+  }
+  .contact-row .v {
+    color: #2b2b2b;
+    font-weight: 500;
+  }
+
+  /* Footer */
+  .footer {
+    position: absolute;
+    bottom: 12mm;
+    left: 13mm;
+    right: 13mm;
+    text-align: center;
+    z-index: 4;
+  }
+  .footer .sep {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 0.7mm;
+  }
+  .footer .sep .line {
+    height: 0.5px;
+    width: 22mm;
+    background: linear-gradient(to right, transparent, #b48a3f, transparent);
+  }
+  .footer .sep .dot { color: #b48a3f; font-size: 7pt; }
+  .footer .note {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 8pt;
+    color: #8a6a2a;
+    letter-spacing: 0.5px;
+  }
+
+  /* ---------- Print ---------- */
+  @media print {
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    html, body {
+      background: #fffdf8;
+      margin: 0;
+      padding: 0;
+    }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: avoid;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Decorative frames -->
+  <div class="frame-outer"></div>
+  <div class="frame-inner"></div>
+
+  <!-- Corner ornaments -->
+  <div class="corner tl">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#b48a3f" stroke-width="0.8">
+        <path d="M5,5 L40,5" />
+        <path d="M5,5 L5,40" />
+        <path d="M10,10 L30,10 M10,10 L10,30" stroke-width="0.5"/>
+        <circle cx="14" cy="14" r="3" stroke-width="0.6"/>
+        <path d="M14,11 Q17,14 14,17 Q11,14 14,11 Z" fill="#b48a3f" stroke="none"/>
+        <path d="M22,8 Q26,12 22,16 Q18,12 22,8 Z" fill="#d8b86a" fill-opacity="0.5" stroke="#b48a3f" stroke-width="0.4"/>
+        <path d="M8,22 Q12,26 8,30 M8,22 Q12,18 16,22" stroke="#b48a3f" stroke-width="0.5" fill="none"/>
+        <path d="M5,45 Q15,40 25,45 Q20,50 15,48 Q10,50 5,45" fill="#d8b86a" fill-opacity="0.3" stroke="#b48a3f" stroke-width="0.4"/>
+      </g>
+    </svg>
+  </div>
+  <div class="corner tr">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#b48a3f" stroke-width="0.8">
+        <path d="M5,5 L40,5" />
+        <path d="M5,5 L5,40" />
+        <path d="M10,10 L30,10 M10,10 L10,30" stroke-width="0.5"/>
+        <circle cx="14" cy="14" r="3" stroke-width="0.6"/>
+        <path d="M14,11 Q17,14 14,17 Q11,14 14,11 Z" fill="#b48a3f" stroke="none"/>
+        <path d="M22,8 Q26,12 22,16 Q18,12 22,8 Z" fill="#d8b86a" fill-opacity="0.5" stroke="#b48a3f" stroke-width="0.4"/>
+        <path d="M8,22 Q12,26 8,30 M8,22 Q12,18 16,22" stroke="#b48a3f" stroke-width="0.5" fill="none"/>
+        <path d="M5,45 Q15,40 25,45 Q20,50 15,48 Q10,50 5,45" fill="#d8b86a" fill-opacity="0.3" stroke="#b48a3f" stroke-width="0.4"/>
+      </g>
+    </svg>
+  </div>
+  <div class="corner bl">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#b48a3f" stroke-width="0.8">
+        <path d="M5,5 L40,5" />
+        <path d="M5,5 L5,40" />
+        <path d="M10,10 L30,10 M10,10 L10,30" stroke-width="0.5"/>
+        <circle cx="14" cy="14" r="3" stroke-width="0.6"/>
+        <path d="M14,11 Q17,14 14,17 Q11,14 14,11 Z" fill="#b48a3f" stroke="none"/>
+        <path d="M22,8 Q26,12 22,16 Q18,12 22,8 Z" fill="#d8b86a" fill-opacity="0.5" stroke="#b48a3f" stroke-width="0.4"/>
+        <path d="M8,22 Q12,26 8,30 M8,22 Q12,18 16,22" stroke="#b48a3f" stroke-width="0.5" fill="none"/>
+        <path d="M5,45 Q15,40 25,45 Q20,50 15,48 Q10,50 5,45" fill="#d8b86a" fill-opacity="0.3" stroke="#b48a3f" stroke-width="0.4"/>
+      </g>
+    </svg>
+  </div>
+  <div class="corner br">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#b48a3f" stroke-width="0.8">
+        <path d="M5,5 L40,5" />
+        <path d="M5,5 L5,40" />
+        <path d="M10,10 L30,10 M10,10 L10,30" stroke-width="0.5"/>
+        <circle cx="14" cy="14" r="3" stroke-width="0.6"/>
+        <path d="M14,11 Q17,14 14,17 Q11,14 14,11 Z" fill="#b48a3f" stroke="none"/>
+        <path d="M22,8 Q26,12 22,16 Q18,12 22,8 Z" fill="#d8b86a" fill-opacity="0.5" stroke="#b48a3f" stroke-width="0.4"/>
+        <path d="M8,22 Q12,26 8,30 M8,22 Q12,18 16,22" stroke="#b48a3f" stroke-width="0.5" fill="none"/>
+        <path d="M5,45 Q15,40 25,45 Q20,50 15,48 Q10,50 5,45" fill="#d8b86a" fill-opacity="0.3" stroke="#b48a3f" stroke-width="0.4"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Watermark floral motif -->
+  <div class="watermark">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#5a1a2e" stroke="none">
+        <circle cx="100" cy="100" r="6"/>
+        <g>
+          <ellipse cx="100" cy="70" rx="8" ry="20"/>
+          <ellipse cx="100" cy="130" rx="8" ry="20"/>
+          <ellipse cx="70" cy="100" rx="20" ry="8"/>
+          <ellipse cx="130" cy="100" rx="20" ry="8"/>
+        </g>
+        <g>
+          <ellipse cx="120" cy="80" rx="6" ry="16" transform="rotate(45 100 100)"/>
+          <ellipse cx="80" cy="120" rx="6" ry="16" transform="rotate(45 100 100)"/>
+          <ellipse cx="80" cy="80" rx="6" ry="16" transform="rotate(-45 100 100)"/>
+          <ellipse cx="120" cy="120" rx="6" ry="16" transform="rotate(-45 100 100)"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="ornament-line">
+      <span class="line"></span>
+      <span class="diamond">&#10070; &#10022; &#10070;</span>
+      <span class="line"></span>
+    </div>
+    <div class="title">BIODATA</div>
+    <div class="subtitle">&#10047; In the name of Allah, the Most Gracious, the Most Merciful &#10047;</div>
+  </div>
+
+  <!-- Name banner -->
+  <div class="name-banner">
+    <div class="name">Umme Sadia Jarin</div>
+    <div class="arabic">&#10070; &#10022; &#10070;</div>
+  </div>
+
+  <div class="content">
+
+    <!-- 1. Personal Information -->
+    <div class="section">
+      <div class="section-title">
+        <span class="num">1</span>
+        <span class="label">Personal Information</span>
+        <span class="rule"></span>
+      </div>
+      <div class="card">
+        <div class="grid-2">
+          <div class="row"><span class="k">Full Name</span><span class="sep">:</span><span class="v">Umme Sadia Jarin</span></div>
+          <div class="row"><span class="k">Date of Birth</span><span class="sep">:</span><span class="v">22 October 2003</span></div>
+          <div class="row"><span class="k">Age</span><span class="sep">:</span><span class="v">23 Years</span></div>
+          <div class="row"><span class="k">Height</span><span class="sep">:</span><span class="v">5' 3"</span></div>
+          <div class="row"><span class="k">Weight</span><span class="sep">:</span><span class="v">50 kg</span></div>
+          <div class="row"><span class="k">Blood Group</span><span class="sep">:</span><span class="v">O+</span></div>
+          <div class="row"><span class="k">Marital Status</span><span class="sep">:</span><span class="v">Never Married</span></div>
+          <div class="row"><span class="k">Religion</span><span class="sep">:</span><span class="v">Islam</span></div>
+          <div class="row" style="grid-column: span 2;"><span class="k">Nationality</span><span class="sep">:</span><span class="v">Bangladeshi</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Educational Qualification -->
+    <div class="section">
+      <div class="section-title">
+        <span class="num">2</span>
+        <span class="label">Educational Qualification</span>
+        <span class="rule"></span>
+      </div>
+      <div class="card">
+        <div class="edu-item">
+          <span class="bullet">&#9670;</span>
+          <span><span class="deg">B.Sc. in Physiotherapy (3rd Year)</span> <span class="inst">— National Institute of Traumatology and Orthopaedic Rehabilitation (NITOR), Sher-e-Bangla Nagar, Dhaka</span> <span class="yr">(Currently Studying)</span></span>
+        </div>
+        <div class="edu-item">
+          <span class="bullet">&#9670;</span>
+          <span><span class="deg">Higher Secondary Certificate (HSC)</span> <span class="inst">— Science Group, GPA-5, Hazera-Taju Degree College, Chattogram Board</span> <span class="yr">(2021)</span></span>
+        </div>
+        <div class="edu-item">
+          <span class="bullet">&#9670;</span>
+          <span><span class="deg">Secondary School Certificate (SSC)</span> <span class="inst">— Science Group, GPA-5, Kadhurkhil United Muslim High School, Chattogram Board</span> <span class="yr">(2019)</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Family Information -->
+    <div class="section">
+      <div class="section-title">
+        <span class="num">3</span>
+        <span class="label">Family Information</span>
+        <span class="rule"></span>
+      </div>
+      <div class="card">
+        <div class="row" style="margin-bottom: 1mm;"><span class="k">Father's Name</span><span class="sep">:</span><span class="v">Late Jalil Box <span style="color:#8a6a2a;font-style:italic;font-size:8pt;">(Former Businessman)</span></span></div>
+        <div class="row" style="margin-bottom: 1mm;"><span class="k">Mother's Name</span><span class="sep">:</span><span class="v">Lutfar Nahar <span style="color:#8a6a2a;font-style:italic;font-size:8pt;">(Homemaker)</span></span></div>
+        <div class="row" style="margin-bottom: 1mm;"><span class="k">Paternal Grandparents</span><span class="sep">:</span><span class="v">Late Haji Sirajul Haque &amp; Jokiya Khatun</span></div>
+        <div class="row" style="margin-bottom: 1.5mm;"><span class="k">Maternal Grandparents</span><span class="sep">:</span><span class="v">Late Ahmad Miya &amp; Rashida Begam <span style="color:#8a6a2a;font-style:italic;font-size:8pt;">(Maternal Home: Sripur, Boalkhali, Chattogram)</span></span></div>
+        <div class="row" style="margin-bottom: 1mm;"><span class="k">Siblings</span><span class="sep">:</span></div>
+        <div style="padding-left: 4mm;">
+          <div class="sibling">
+            <span class="marker">&#9670;</span>
+            <span><span class="relation">Elder Brother:</span> <span class="detail">Salah Uddin Jewel — Sub-Assistant Engineer, Education Engineering Department (EED), Cox's Bazar <span style="color:#8a6a2a;font-style:italic;">(Married)</span></span></span>
+          </div>
+          <div class="sibling">
+            <span class="marker">&#9670;</span>
+            <span><span class="relation">Sister-in-Law:</span> <span class="detail">Fahmida Sultana — M.Sc. in Botany, Govt. Mohsin College, Chattogram</span></span>
+          </div>
+          <div class="sibling">
+            <span class="marker">&#9670;</span>
+            <span><span class="relation">Brother:</span> <span class="detail">Jalal Uddin Juhan — Junior Programmer at CITL; B.Sc. in Physics, pursuing PMIT at Jahangirnagar University <span style="color:#8a6a2a;font-style:italic;">(Unmarried)</span></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Paternal & Maternal Uncles (2-row structured table) -->
+    <div class="section">
+      <div class="section-title">
+        <span class="num">4</span>
+        <span class="label">Paternal &amp; Maternal Uncles</span>
+        <span class="rule"></span>
+      </div>
+      <table class="uncles-table">
+        <thead>
+          <tr>
+            <th style="width:50%;">Paternal Uncles <span class="sub">— Chacha</span></th>
+            <th style="width:50%;">Maternal Uncles <span class="sub">— Mama</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left">
+              <div class="uncle-item">
+                <span class="marker">&#9670;</span>
+                <span><span class="nm">Abul Kalam</span> <span class="det">— Expatriate</span> <span class="st">(Oman)</span></span>
+              </div>
+              <div class="uncle-item">
+                <span class="marker">&#9670;</span>
+                <span><span class="nm">Bahadur Sha</span> <span class="st">— Late</span></span>
+              </div>
+              <div class="uncle-item">
+                <span class="marker">&#9670;</span>
+                <span><span class="nm">Abul Kashem</span> <span class="st">— Late</span></span>
+              </div>
+              <div class="uncle-item">
+                <span class="marker">&#9670;</span>
+                <span><span class="nm">Abul Hasem</span> <span class="det">— Expatriate</span> <span class="st">(Saudi Arabia)</span></span>
+              </div>
+              <div class="uncle-item">
+                <span class="marker">&#9670;</span>
+                <span><span class="nm">Abul Hossain</span> <span class="det">— Expatriate</span> <span class="st">(UAE)</span></span>
+              </div>
+            </td>
+            <td class="left">
+              <div class="uncle-item">
+                <span class="marker">&#9670;</span>
+                <span><span class="nm">MD Shahadath Hossain</span> <span class="st">(Retired)</span> <span class="det">— Ex. Chief Finance and Accounts Officer, Chittagong Port Authority</span> <span class="ph">| Contact: 01715 97 76 48</span></span>
+              </div>
+              <div class="uncle-item">
+                <span class="marker">&#9670;</span>
+                <span><span class="nm">MD Jahangir Hossain</span> <span class="det">— Advocate and Land Consultant, Lawyer Annex Building 1, Court Hill, Chattogram</span> <span class="ph">| Contact: 01819 61 46 65</span></span>
+              </div>
+              <div class="uncle-item">
+                <span class="marker">&#9670;</span>
+                <span><span class="nm">MD Amzad Hossain</span> <span class="det">— Manager Accounts, Biman Bangladesh Airlines Ltd., Chattogram</span> <span class="ph">| Contact: 01817 70 05 44</span></span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 5. Address -->
+    <div class="section">
+      <div class="section-title">
+        <span class="num">5</span>
+        <span class="label">Address</span>
+        <span class="rule"></span>
+      </div>
+      <div class="card">
+        <div class="addr-row"><span class="k">Present Address</span><span style="color:#b48a3f;">:</span><span class="v">Baraipara, Bahaddarhat, Chattogram</span></div>
+        <div class="addr-row"><span class="k">Permanent Address</span><span style="color:#b48a3f;">:</span><span class="v">West Charandwip, Charandwip, Boalkhali, Chattogram</span></div>
+      </div>
+    </div>
+
+    <!-- 6. Contact Information -->
+    <div class="section">
+      <div class="section-title">
+        <span class="num">6</span>
+        <span class="label">Contact Information</span>
+        <span class="rule"></span>
+      </div>
+      <div class="card">
+        <div class="contact-row">
+          <span class="icon">&#9742;</span>
+          <span class="k">Guardian's Contact</span>
+          <span style="color:#b48a3f;">:</span>
+          <span class="v">01873606071</span>
+          <span style="color:#8a6a2a;font-style:italic;font-size:8pt;">(Elder Brother — Salah Uddin Jewel)</span>
+        </div>
+		<div class="contact-row" style="margin-bottom: 0;">
+            <span class="icon">&#9742;</span>
+            <span class="k" style="min-width: 22mm;">Mother's Contact</span>
+            <span style="color:#b48a3f;">:</span>
+            <span class="v">01819367221</span>
+			<span style="color:#8a6a2a;font-style:italic;font-size:8pt;">(Mother — Lutfar Nahar)</span></span>
+          </div>
+        <!-- <div class="contact-row"> -->
+          <!-- <span class="icon">&#9993;</span> -->
+          <!-- <span class="k">Email</span> -->
+          <!-- <span style="color:#b48a3f;">:</span> -->
+          <!-- <span class="v">engr.salahuddin.eed@gmail.com</span> -->
+        <!-- </div> -->
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="sep">
+      <span class="line"></span>
+      <span class="dot">&#10070;</span>
+      <span class="line"></span>
+    </div>
+    <div class="note">&#10047; Bismillah &mdash; With heartfelt prayers for a blessed union &#10047;</div>
+  </div>
+
+</div>
+</body>
+</html>
