@@ -347,62 +347,35 @@
 	/* ---------- MOBILE RESPONSIVE (Screen Only) ---------- */
   @media screen and (max-width: 768px) {
     body {
-      padding: 8px;
-      display: block;
+      padding: 8px 0;
+      display: flex;
+      justify-content: center;
+      overflow-x: hidden;
     }
     .sheet {
-      width: 100%;
-      height: auto;
-      min-height: auto;
-      overflow: visible;
-      padding: 16px 12px;
-    }
-    .frame-outer { inset: 4px; }
-    .frame-inner { inset: 7px; }
-    .corner, .vine { display: none; }
-    .content {
-      position: static;
-      inset: auto;
-      padding: 6px;
-    }
-    .title {
-      font-size: 22px;
-      letter-spacing: 4px;
-    }
-    .subtitle {
-      font-size: 8px;
-      letter-spacing: 1.5px;
-    }
-    .grid, .addr-grid, .sib-grid {
-      grid-template-columns: 1fr;
-      gap: 4px;
-    }
-    .field .lbl {
-      min-width: 115px;
-    }
-    .uncles-row {
-      grid-template-columns: 1fr;
-    }
-    .uncles-cells.cols-5,
-    .uncles-cells.cols-3 {
-      grid-template-columns: 1fr;
-    }
-    .cell {
-      text-align: left;
-      border-right: none;
-      border-bottom: 1px solid var(--line);
-      padding: 6px 8px;
-    }
-    .cell:last-child { border-bottom: none; }
-    .ct {
-      min-width: 100%;
-    }
-    .footer {
-      margin-top: 14px;
+      transform-origin: top center;
     }
   }
 </style>
 </head>
+	<script>
+  function fitBiodataToMobile() {
+    const sheet = document.querySelector('.sheet');
+    if (!sheet) return;
+    if (window.innerWidth <= 768) {
+      const availableWidth = window.innerWidth - 16;
+      const sheetWidth = sheet.offsetWidth;
+      const scale = Math.min(1, availableWidth / sheetWidth);
+      sheet.style.transform = `scale(${scale})`;
+      sheet.style.marginBottom = `-${sheet.offsetHeight * (1 - scale)}px`;
+    } else {
+      sheet.style.transform = '';
+      sheet.style.marginBottom = '';
+    }
+  }
+  window.addEventListener('load', fitBiodataToMobile);
+  window.addEventListener('resize', fitBiodataToMobile);
+</script>
 <body>
 
 <div class="sheet">
